@@ -14,7 +14,7 @@ namespace SimuladorClasificaciónF1.Vista
     public partial class Carreras : Form
     {
         BDControlador controlador = new BDControlador();
-        String nombreBD = "prueba";
+        String nombreBD = "F1Data";
         public Carreras()
         {
             InitializeComponent();
