@@ -10,11 +10,15 @@ namespace SimuladorClasificaciónF1.Controlador
 {
     class BDControlador
     {
-        private BD modelo = new BD();
-
-        public void CrearBaseDatos(string nombreBaseDatos)
+        BD modelo = new BD();
+       
+        public BDControlador()
         {
-            if (modelo.VerificarExistenciaBaseDatos(nombreBaseDatos))
+        }
+
+        public void CrearBaseDatos(string nombreBaseDatos, Inicio inicio)
+        {
+            if (modelo.VerificarExistenciaBaseDatos(nombreBaseDatos, inicio))
             {
                 modelo.EliminarBaseDatos(nombreBaseDatos);
 

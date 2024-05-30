@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SimuladorClasificaciónF1.Modelo
 {
@@ -26,16 +27,25 @@ namespace SimuladorClasificaciónF1.Modelo
             }
         }
 
-        public bool VerificarExistenciaBaseDatos(string nombreBaseDatos)
+        public bool VerificarExistenciaBaseDatos(string nombreBaseDatos, Inicio inicio)
         {
             bool existe = false;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
                 string consulta = $"SELECT COUNT(*) FROM master.dbo.sysdatabases WHERE name = '{nombreBaseDatos}'";
                 SqlCommand comando = new SqlCommand(consulta, conexion);
-                conexion.Open();
-                existe = Convert.ToInt32(comando.ExecuteScalar()) > 0;
-                conexion.Close();
+                try
+                {
+                    conexion.Open();
+                    existe = Convert.ToInt32(comando.ExecuteScalar()) > 0;
+                    conexion.Close();
+                } catch (System.Data.SqlClient.SqlException e)
+                {
+                    MessageBox.Show("No se ha podido conectar a la base de datos.\n" +
+                        "Configura una cadena de conexión correcta en el archivo SimuladorClasificaciónF1.exe.config.",
+                        "Cadena Conexión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    inicio.Close();
+                }
             }
             return existe;
         }

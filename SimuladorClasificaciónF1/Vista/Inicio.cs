@@ -19,16 +19,13 @@ namespace SimuladorClasificaciónF1
 {
     public partial class Inicio : Form
     {
-
-        BDControlador controlador = new BDControlador();
-
         public Inicio()
         {
             InitializeComponent();
             CenterToScreen();
         }
 
-
+        BDControlador controlador = new BDControlador();
 
         private void btnFin_Click(object sender, EventArgs e)
         {
@@ -44,7 +41,7 @@ namespace SimuladorClasificaciónF1
 
             if (!string.IsNullOrEmpty(nombreBaseDatos))
             {
-                controlador.CrearBaseDatos(nombreBaseDatos);
+                controlador.CrearBaseDatos(nombreBaseDatos, this);
                 controlador.InsertPiloto(nombreBaseDatos);
                 controlador.InsertCarreras(nombreBaseDatos);
             }
