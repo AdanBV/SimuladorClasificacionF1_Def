@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{520221DB-4A67-4F75-A0D5-47948CD6D918}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SimuladorClasificaciónF1</RootNamespace>
+    <AssemblyName>SimuladorClasificaciónF1</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.3.4.1\lib\net462\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.3.4.1\lib\net462\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.NonGeneric, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.NonGeneric.4.3.0\lib\net46\System.Collections.NonGeneric.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controlador\BDControlador.cs" />
+    <Compile Include="Modelo\BD.cs" />
+    <Compile Include="Modelo\Carrera.cs" />
+    <Compile Include="Modelo\Clasificacion.cs" />
+    <Compile Include="Modelo\Equipo.cs" />
+    <Compile Include="Modelo\Piloto.cs" />
+    <Compile Include="Vista\Carreras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Carreras.Designer.cs">
+      <DependentUpon>Carreras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ClasificacionVista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\ClasificacionVista.Designer.cs">
+      <DependentUpon>ClasificacionVista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ClasificacionCarrera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\ClasificacionCarrera.Designer.cs">
+      <DependentUpon>ClasificacionCarrera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Informacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Informacion.Designer.cs">
+      <DependentUpon>Informacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\OrganizarPilotos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\OrganizarPilotos.Designer.cs">
+      <DependentUpon>OrganizarPilotos.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Vista\Carreras.resx">
+      <DependentUpon>Carreras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\ClasificacionVista.resx">
+      <DependentUpon>ClasificacionVista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\ClasificacionCarrera.resx">
+      <DependentUpon>ClasificacionCarrera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Informacion.resx">
+      <DependentUpon>Informacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\OrganizarPilotos.resx">
+      <DependentUpon>OrganizarPilotos.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\alex-albon.jpeg" />
+    <Resource Include="Images\carlos-sainz.jpeg" />
+    <Resource Include="Images\charles-leclerc.jpeg" />
+    <Resource Include="Images\daniel-ricciardo.jpeg" />
+    <Resource Include="Images\esteban-ocon.jpeg" />
+    <Content Include="Images\fernando-alonso.jpeg" />
+    <Resource Include="Images\george-russell.jpeg" />
+    <Resource Include="Images\kevin-magnussen.jpeg" />
+    <Resource Include="Images\lance-stroll.jpeg" />
+    <Resource Include="Images\lando-norris.jpeg" />
+    <Resource Include="Images\Lewis_Hamilton.jpeg" />
+    <Resource Include="Images\logan-sargeant.jpeg" />
+    <Resource Include="Images\max-verstappen.jpeg" />
+    <Resource Include="Images\nico-hulkenberg.jpeg" />
+    <Resource Include="Images\oscar-piastri.jpeg" />
+    <Resource Include="Images\pierre-gasly.jpeg" />
+    <Resource Include="Images\sergio-perez.jpeg" />
+    <Resource Include="Images\valtteri-bottas.jpeg" />
+    <Resource Include="Images\yuki-tsunoda.jpeg" />
+    <Resource Include="Images\zhou-guanyu.jpeg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
