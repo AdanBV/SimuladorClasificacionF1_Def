@@ -554,7 +554,7 @@ namespace SimuladorClasificaciónF1.Modelo
                               "AND p1.id < p2.id " +
                               "JOIN clasificacion c ON p1.id = c.id_piloto " +
                               "OR p2.id = c.id_piloto " +
-                              "GROUP BY p1.equipo" +
+                              "GROUP BY p1.equipo " +
                               "ORDER BY puntos_totales DESC;";
 
                 SqlCommand command = new SqlCommand(query, conexion);
